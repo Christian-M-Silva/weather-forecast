@@ -13,7 +13,7 @@ namespace MVCPrototype.Application.Services
 
         public IEnumerable<WeatherForecast> GetWeather()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(0, 7).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),

@@ -18,9 +18,10 @@ namespace MVCPrototype.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        [Route ("{startDate}/{endDate}")]
+        public IActionResult Get(String startDate, String endDate)
         {
-            var response = _weatherService.GetWeather();
+            var response = _weatherService.GetWeather(startDate, endDate);
             return StatusCode(200, response);
         }
     }

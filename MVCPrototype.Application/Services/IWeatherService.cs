@@ -4,6 +4,6 @@ namespace MVCPrototype.Application.Services
 {
     public interface IWeatherService
     {
-        IEnumerable<WeatherForecast> GetWeather();
+        IEnumerable<WeatherForecast> GetWeather(String startDate, String endDate);
     }
 }

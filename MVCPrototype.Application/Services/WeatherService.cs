@@ -6,7 +6,7 @@ namespace MVCPrototype.Application.Services
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Raining", "Smog", "Sunny"
+            "Frio", "Chuvoso", "Névoa", "Ensolarado"
         };
 
         public WeatherService() { }

@@ -29,16 +29,16 @@ function mountWeatherDisplay(weather_object) {
 function getIcon(summary) {
     const icon_img = document.createElement("IMG");
     switch (summary) {
-        case "Freezing":
+        case "Frio":
             icon_img.src = ICON_SRC + "/snowflake-solid.svg";
             break;
-        case "Smog":
+        case "Névoa":
             icon_img.src = ICON_SRC + "/smog-solid.svg";
             break;
-        case "Sunny":
+        case "Ensolarado":
             icon_img.src = ICON_SRC + "/sun-solid.svg";
             break;
-        case "Raining":
+        case "Chuvoso":
             icon_img.src = ICON_SRC + "/rain-solid.svg";
             break;
     }

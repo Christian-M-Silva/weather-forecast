@@ -8,17 +8,25 @@ function mountWeatherDisplay(weather_object) {
     weather.classList.add("weather-display");
 
     let header = document.createElement("SPAN");
-    header.innerText = weather_object.date;
+    header.innerText = weather_object.formattedDate;
+
+    let dayOfWeek = document.createElement("SPAN");
+    dayOfWeek.classList.add("weather-day");
+    dayOfWeek.innerText = weather_object.dayOfWeek; 
+
     let footer = document.createElement("SPAN");
+    footer.classList.add("footer");
     footer.innerText = weather_object.summary;
 
     let temperature = document.createElement("SPAN");
     temperature.classList.add("weather-temperature");
     temperature.innerText = `${weather_object.temperatureC}`;
+
     let icon = document.createElement("LABEL");
     icon.appendChild(getIcon(weather_object.summary));
 
     weather.appendChild(header);
+    weather.appendChild(dayOfWeek);
     weather.appendChild(temperature);
     weather.appendChild(icon);
     weather.appendChild(footer);

@@ -10,11 +10,11 @@
     align-items: center;
     border: 1px solid #ddd;
     border-radius: 3px;
-    background: linear-gradient(to top, #ddd, white 60%);
+    background: linear-gradient(to top, #512DA8, #673AB7, #B39DDB);
 }
 
 .weather-display .weather-temperature::after {
-    content: "C";
+    content: "°C";
     font-weight: bold;
     font-size: 0.75em;
 }
@@ -39,29 +39,41 @@
     padding: 1rem;
 }
 
-    .datepicker.active {
-        display: block;
-    }
+.weather-display .weather-day {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
 
-    .datepicker button {
-        width: 2rem;
-        height: 2rem;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0.25rem;
-        border: none;
-        background: #f3f4f6;
-        border-radius: 0.25rem;
-        cursor: pointer;
-        transition: background 0.2s;
-    }
+.datepicker.active {
+    display: block;
+}
 
-        .datepicker button:hover {
-            background: #e5e7eb;
-        }
+.datepicker button {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.25rem;
+    border: none;
+    background: #f3f4f6;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
 
-        .datepicker button.selected {
-            background: #3b82f6;
-            color: white;
-        }
+.datepicker button:hover {
+    background: #e5e7eb;
+}
+
+.datepicker button.selected {
+    background: #3b82f6;
+    color: white;
+}
+
+.footer{
+    font-weight: bolder;
+    color: white;
+}

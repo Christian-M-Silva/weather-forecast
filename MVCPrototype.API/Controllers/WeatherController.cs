@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MVCPrototype.Application.Services;
+using MVCPrototype.Domain.Entities;
 
 namespace MVCPrototype.Controllers
 {
@@ -11,6 +12,7 @@ namespace MVCPrototype.Controllers
         protected readonly IConfiguration _configuration;
         private readonly IWeatherService _weatherService;
 
+
         public WeatherController(IConfiguration configuration, IWeatherService weatherService)
         {
             _configuration = configuration;
@@ -18,7 +20,7 @@ namespace MVCPrototype.Controllers
         }
 
         [HttpGet]
-        [Route ("{startDate}/{endDate}")]
+        [Route("{startDate}/{endDate}")]
         public IActionResult Get(String startDate, String endDate)
         {
             var response = _weatherService.GetWeather(startDate, endDate);

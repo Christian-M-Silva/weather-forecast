@@ -1,6 +1,5 @@
 ﻿const weather_container = $("#weather-list");
 const ICON_SRC = "/icons";
-//const toast = new bootstrap.Toast(document.getElementById('errorToast'));
 
 
 function mountWeatherDisplay(weather_object) {
@@ -23,7 +22,7 @@ function mountWeatherDisplay(weather_object) {
     temperature.innerText = `${weather_object.temperatureC}`;
 
     let icon = document.createElement("LABEL");
-    icon.appendChild(getIcon(weather_object.summary));
+    icon.appendChild(getIcon(weather_object.summary, weather));
 
     weather.appendChild(header);
     weather.appendChild(dayOfWeek);
@@ -34,20 +33,25 @@ function mountWeatherDisplay(weather_object) {
     return weather;
 }
 
-function getIcon(summary) {
+function getIcon(summary, weather) {
     const icon_img = document.createElement("IMG");
+
     switch (summary) {
         case "Frio":
             icon_img.src = ICON_SRC + "/snowflake-solid.svg";
+            weather.classList.add("bg-snowflake");
             break;
         case "Névoa":
             icon_img.src = ICON_SRC + "/smog-solid.svg";
+            weather.classList.add("bg-smog");
             break;
         case "Ensolarado":
             icon_img.src = ICON_SRC + "/sun-solid.svg";
+            weather.classList.add("bg-sun");
             break;
         case "Chuvoso":
             icon_img.src = ICON_SRC + "/rain-solid.svg";
+            weather.classList.add("bg-rain");
             break;
     }
     return icon_img;

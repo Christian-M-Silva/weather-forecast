@@ -26,7 +26,7 @@ namespace MVCPrototype.Controllers
         public async Task<IActionResult> GetProduct()
         {
             string accessToken = await _tokenService.GetAccessTokenAsync();
-            string response = await _apiService.GetAgroDataAsync(accessToken);
+            List<ProdutosFormuladosResponse> response = await _apiService.GetAgroDataAsync(accessToken);
 
             return StatusCode(200, response);
         }

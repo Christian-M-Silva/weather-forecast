@@ -1,9 +1,8 @@
 ﻿using MVCPrototype.Domain.Entities;
+using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
-using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace MVCPrototype.Application.Services.agrofitApi
 {
@@ -11,7 +10,7 @@ namespace MVCPrototype.Application.Services.agrofitApi
     {
         private readonly HttpClient _httpClient = httpClient;
 
-        public async Task<string> GetAgroDataAsync(string accessToken)
+        public async Task<List<ProdutosFormuladosResponse>> GetAgroDataAsync(string accessToken)
         {
             try
             {
@@ -26,10 +25,19 @@ namespace MVCPrototype.Application.Services.agrofitApi
 
                 var jsonString = await response.Content.ReadAsStringAsync();
 
+                var settings = new JsonSerializerSettings
+                {
+                    ContractResolver = new DefaultContractResolver
+                    {
+                        NamingStrategy = new SnakeCaseNamingStrategy()
+                    }
+                };
 
-                return jsonString;
+                List<ProdutosFormuladosResponse> result = JsonConvert.DeserializeObject<List<ProdutosFormuladosResponse>>(jsonString, settings);
+
+                return result;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

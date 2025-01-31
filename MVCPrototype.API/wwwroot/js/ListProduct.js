@@ -3,28 +3,27 @@
         url: `/ListProduct`,
         type: "GET",
         success: (response) => {
-            const jsonData = JSON.parse(response);
-            renderizarTabela(jsonData)
+            renderTable(response)
         }
     });
 });
 
-function renderizarTabela(produtos) {
+function renderTable(products) {
     const tabelaBody = document.querySelector("#tabelaProdutos tbody");
-    tabelaBody.innerHTML = ""; // Limpa o conteúdo antes de inserir
+    tabelaBody.innerHTML = "";
 
-    produtos.forEach(produto => {
-        const linha = `
+    products.forEach(product => {
+        const row = `
             <tr>
-                <td>${produto.marca_comercial[0]}</td>
-                <td>${produto.formulacao}</td>
-                <td>${produto.tecnica_aplicacao.join(', ') }</td>
-                <td>${produto.classificacao_toxicologica}</td>
-                <td>${produto.classificacao_ambiental}</td>
+                <td>${product.marcaComercial[0]}</td>
+                <td>${product.formulacao}</td>
+                <td>${product.tecnicaAplicacao.join(', ') }</td>
+                <td>${product.classificacaoToxicologica}</td>
+                <td>${product.classificacaoAmbiental}</td>
 
 
             </tr>
         `;
-        tabelaBody.innerHTML += linha;
+        tabelaBody.innerHTML += row;
     });
 }

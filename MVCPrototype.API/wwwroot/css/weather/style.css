@@ -101,3 +101,55 @@
     font-weight: bolder;
     color: white;
 }
+
+#tabelaProdutos {
+    border-radius: 10px;
+    overflow: hidden; 
+}
+
+#tabelaProdutos th, #tabelaProdutos td {
+    padding: 12px 15px;
+}
+#tabelaProdutos tbody tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+#tabelaProdutos thead th {
+    background-color: #343a40;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+#tabelaProdutos tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+#tabelaProdutos th, #tabelaProdutos td {
+    text-align: center;
+}
+#tabelaProdutos {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.styled-date {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.styled-date:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

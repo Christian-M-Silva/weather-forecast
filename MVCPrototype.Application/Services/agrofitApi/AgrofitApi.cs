@@ -33,13 +33,13 @@ namespace MVCPrototype.Application.Services.agrofitApi
                     }
                 };
 
-                List<ProdutosFormuladosResponse> result = JsonConvert.DeserializeObject<List<ProdutosFormuladosResponse>>(jsonString, settings);
+                var result = JsonConvert.DeserializeObject<List<ProdutosFormuladosResponse>>(jsonString, settings);
 
-                return result;
+                return result ?? throw new InvalidOperationException("O JSON não pode ser nulo");
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception("Ocorreu um erro durante em seu pedido. Tente mais tarde", ex);
             }
         }
     }

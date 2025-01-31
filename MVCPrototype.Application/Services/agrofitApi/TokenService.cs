@@ -21,8 +21,14 @@ public class TokenService
 
     public async Task<string> GetAccessTokenAsync()
     {
-        string consumerKey = _configuration["AgroApi:ConsumerKey"];
-        string consumerSecret = _configuration["AgroApi:ConsumerSecret"];
+        string? consumerKey = _configuration["AgroApi:ConsumerKey"];
+        string? consumerSecret = _configuration["AgroApi:ConsumerSecret"];
+
+        if (string.IsNullOrWhiteSpace(consumerKey) || string.IsNullOrWhiteSpace(consumerSecret))
+        {
+            throw new InvalidOperationException("As configurações 'AgroApi:ConsumerKey' ou 'AgroApi:ConsumerSecret' estão ausentes ou inválidas.");
+        }
+
         string url = "https://api.cnptia.embrapa.br/token";
         string credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{consumerKey}:{consumerSecret}"));
 

@@ -1,11 +1,12 @@
 using MVCPrototype.Application.Services;
+using MVCPrototype.Application.Services.agrofitApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
-builder.Services.AddHttpClient<ApiService>();
+builder.Services.AddHttpClient<AgrofitApi>();
 builder.Services.AddHttpClient<TokenService>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
